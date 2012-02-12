@@ -1,0 +1,155 @@
+set autoindent
+set multibuffer
+#set brackets ""')>]}"
+set matchbrackets "(]}"
+#set mouse ## this is not the mouse support you want. forget about it!
+set smooth #smooth scroll
+
+## Nanorc files
+include "/usr/share/nano/nanorc.nanorc"
+
+## C/C++
+include "/usr/share/nano/c.nanorc"
+
+## HTML
+include "/usr/share/nano/html.nanorc"
+
+## Patch files
+include "/usr/share/nano/patch.nanorc"
+
+## Manpages
+include "/usr/share/nano/man.nanorc"
+
+## Groff
+include "/usr/share/nano/groff.nanorc"
+
+## Perl
+include "/usr/share/nano/perl.nanorc"
+
+## Python
+include "/usr/share/nano/python.nanorc"
+
+## Bourne shell scripts
+include "/usr/share/nano/sh.nanorc"
+
+## Arch PKGBUILDS
+include "/usr/share/nano/pkgbuild.nanorc"
+
+## Syntax Highlight Pack
+## CSS
+include "/usr/share/nano/css.nanorc"
+
+## php
+#include "/usr/share/nano/php.nanorc"
+
+## makefile .am
+include "/usr/share/nano/gentoo.nanorc" 
+
+##############################################################################
+#
+# ini highlighting
+#
+##############################################################################
+
+syntax "ini" "\.ini(\.old|~)?$"
+# values
+color brightred "=.*$"
+# equal sign
+color green "="
+# numbers
+color brightblue "-?[0-9\.]+\s*($|;)"
+# ON/OFF
+color brightmagenta "ON|OFF|On|Off|on|off\s*($|;)"
+# sections
+color brightcyan "^\s*\[.*\]"
+# keys
+color cyan "^\s*[a-zA-Z0-9_\.]+"
+# comments
+color brightyellow ";.*$"
+
+##############################################################################
+#
+## syntax highlighting in xorg.conf
+##
+##############################################################################
+
+syntax "xorg" "xorg\.conf$"
+color brightwhite "(Section|EndSection|Sub[sS]ection|EndSub[sS]ection)"
+# keywords
+color yellow "[^A-Za-z0-9](Identifier|Screen|InputDevice|Option|RightOf|LeftOf|Driver|RgbPath|FontPath|ModulePath|Load|VendorName|ModelName|BoardName|BusID|Device|Monitor|DefaultDepth|View[pP]ort|Depth|Virtual|Modes|Mode|DefaultColorDepth|Modeline|\+vsync|\+hsync|HorizSync|VertRefresh)[^A-Za-z0-9]"
+# numbers
+color magenta "[0-9]"
+# strings
+color green ""(\\.|[^\"])*""
+# comments
+color blue "#.*"
+
+
+##############################################################################
+#
+# Syntax highlighting for XML files
+#
+# Author:  Josef 'Jupp' Schugt, jupp(a)rubyforge.org
+# License: GPL 2  or later
+#
+# Version: 2004-02-25
+#
+##############################################################################
+
+syntax "ml" ".*\.([jrs]?html?|xml|sgml?)$"
+color white "^.+$"
+color green  start="<" end=">"
+color cyan   "<[^> ]+"
+color cyan   ">"
+color yellow start="<!DOCTYPE" end="[/]?>"
+color yellow start="<!--" end="-->"
+color red    "&[^;]*;"
+
+
+
+##############################################################################
+#
+# Syntax highlighting for HTTP codes
+#
+# Author:  Josef 'Jupp' Schugt, jupp(a)rubyforge.org
+# License: GPL 2  or later
+#
+# Version: 2004-02-25
+#
+##############################################################################
+
+syntax "urls"
+color brightmagenta   "^.*$"
+color cyan      "^(1[0-9][0-9]|20[256]|30[45]).*$"
+color green      "^20[03].*$"
+color brightyellow   "^(201|30[0-37]).*$"
+color brightred      "^(204|[45][0-9][0-9]|666).*$"
+
+
+
+
+##############################################################################
+#
+# Syntax highlighting for CSS files
+#  
+# Author:  Simon Rupf, simon.rupf(a)int-ag.ch
+# License: GPL 2  or later
+#
+# Version: 2005-02-14
+#
+##############################################################################
+
+syntax "css" "\.css$"
+color brightred     "."
+color brightyellow  start="\{" end="\}"
+color brightwhite           start=":" end="[;^\{]"
+color brightblue    ":active|:focus|:hover|:link|:visited|:link|:after|:before|$"
+color brightblue    start="\/\*" end="\\*/"
+color green         ";|:|\{|\}"
+
+
+#############################################################################
+# sysuplist
+
+include "/usr/share/nano/sysuplist.nanorc"
+#syntax "sysuplist" ".*sysuplist$"
