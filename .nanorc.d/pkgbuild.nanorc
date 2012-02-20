@@ -1,1 +1,49 @@
-/usr/share/nano/pkgbuild.nanorc
+# Arch PKGBUILD files
+#
+syntax "pkgbuild" "^.*PKGBUILD*"
+# commands
+#color red "\<(cd|echo|enable|exec|export|kill|popd|pushd|read|source|touch|type)\>"
+color brightred "\<(echo|enable|exec|export|kill|popd|pushd|read|source|touch|type|make|make\ install|cmake|automake|autoconf)\>"
+color brightblack "\<(case|cat|chmod|chown|cp|diff|do|done|elif|else|esac|exit|fi|find|for|ftp|function|grep|gzip|if|in)\>"
+color brightblack "\<(install|ln|local|mv|return|rm|sed|select|shift|sleep|tar|then|time|until|while|yes)\>"
+color brightwhite "(mkdir|cd|rm\ ).*$"
+
+# ${*}
+icolor yellow "\$\{?[0-9A-Z_!@#$*?-]+\}?"
+# numerics
+color blue "\ [0-9]*"
+color blue "\.[0-9]*"
+#color blue "\-[0-9]*"
+color blue "=([0-9])+"
+# spaces
+color ,green "[[:space:]]+$"
+
+#commands
+color brightred "(\.\/configure|\.\/autogen\.sh)"
+
+#VCS
+color brightyellow "\<(git|bzr|co|up|br|hg|branch|checkout|clone|pull|push)\>"
+#header unneded
+color brightblack "\<(pkgname|pkgrel|pkgver|pkgdesc|arch|install)\>="
+
+# strings; multilines are not supported
+color brightmagenta ""(\\.|[^"])*"" "'(\\.|[^'])*'"
+
+#header unneeded
+color brightblack "^.*(pkgbase|pkgdesc|arch|url|license).*=.*$"
+color white "^.*pkgname.*=\<.*\>$"
+color brightblack "^.*pkgname.*="
+
+# comments
+color brightblack "#.*$"
+
+#messages
+color brightwhite "msg.*$"
+
+#some
+color cyan "\.install"
+color red "\<(DESTDIR|PREFIX|prefix|sysconfdir|datadir|libdir|includedir|mandir|infodir)\>"
+
+#functions
+color green ".*(build|package).*\(.*\).*$"
+color green "^}.*$"
