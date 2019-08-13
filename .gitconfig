@@ -1,0 +1,48 @@
+[alias]
+	ck = checkout
+	cm = commit
+	cma = commit -a
+	br = branch
+#	pl = pull
+#	ps = push
+	s = status -sbuno
+	st = status -sbuno
+	su = status -sbunormal
+	lol = log --pretty=format:'%C(yellow)%h%Creset %Cgreen%an%Creset %s'
+	lolo = log --pretty=format:'%C(yellow)%h%Creset %Cgreen%an%Creset %s' -10
+	lolg = log --pretty=format:'%C(yellow)%h%Creset %Cgreen%an%Creset %s' --graph
+	changes = whatchanged
+	changed = whatchanged
+	unmerge = reset --hard ORIG_HEAD
+
+[color]
+	ui = true
+
+[color "branch"]
+  current = yellow bold #reverse
+  local = green
+  remote = yellow
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow bold
+  changed = red bold
+  untracked = cyan
+  
+[credential]
+	helper = cache --timeout=3600
+[core]
+	editor = nano
+	excludesfile = ~/.gitignore
+[diff]
+	submodule = log
+[status]
+	submodulesummary = true
+
+[commit]
+	status = false

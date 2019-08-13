@@ -1,0 +1,8 @@
+# My specific ignores
+.idea/
+.venv
+
+# This should not be global, as it neeeds to be shared in project's .gitignore
+# *.py[cod]
+
+
